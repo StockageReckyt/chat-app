@@ -1,22 +1,23 @@
 import React from "react";
 import "./Contact.css";
+import "./ContactList";
 
 const Contact = props => (
-  <div class="Contact">
-    <img class="avatar" src={props.avatar} alt={props.name} />
+  <div className="Contact">
+    <img className="avatar" src={props.avatar} alt={props.name} />
     <div>
-      <h1 class="name">{props.name}</h1>
+      <h1 className="name">{props.name}</h1>
       <div>
-        <p class="status">
+        <p className="status">
           {props.online ? (
             <div>
-              <p class="status-online"></p>
-              <p class="status-text">Online</p>
+              <p className="status-online"></p>
+              <p className="status-text">Online</p>
             </div>
           ) : (
             <div>
-              <p class="status-offline"></p>
-              <p class="status-text">Offline</p>
+              <p className="status-offline"></p>
+              <p className="status-text">Offline</p>
             </div>
           )}
         </p>
