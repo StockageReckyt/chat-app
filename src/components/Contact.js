@@ -1,29 +1,55 @@
-import React from "react";
+import React, { Component } from "react";
 import "./Contact.css";
-import "./ContactList";
+// import ContactList from "./ContactList";
 
-const Contact = props => (
-  <div className="Contact">
-    <img className="avatar" src={props.avatar} alt={props.name} />
-    <div>
-      <h1 className="name">{props.name}</h1>
-      <div>
-        <p className="status">
-          {props.online ? (
-            <div>
-              <p className="status-online"></p>
-              <p className="status-text">Online</p>
-            </div>
-          ) : (
-            <div>
-              <p className="status-offline"></p>
-              <p className="status-text">Offline</p>
-            </div>
-          )}
-        </p>
+class Contact extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { online: false };
+  }
+  render() {
+    return (
+      <div className="Contact">
+        <img className="avatar" src={this.props.avatar} alt={this.props.name} />
+        <div>
+          <h1 className="name">{this.props.name}</h1>
+          <div>
+            <p className="status">
+              <div
+                onClick={event => {
+                  const newStatus = !this.state.online;
+                  this.setState({ online: newStatus });
+                }}
+              >
+                <span
+                  className={
+                    this.state.online ? "status-online" : "status-offline"
+                  }
+                ></span>
+                <span className="status-text">
+                  {this.state.online ? "online" : "offline"}
+                </span>
+              </div>
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-);
+    );
+  }
+}
 
 export default Contact;
+
+/* <p className="status">
+{this.props.online ? (
+  <div>
+    <span className="status-online"></span>
+    <span className="status-text">Online</span>
+  </div>
+) : (
+  <div>
+    <span className="status-offline"></span>
+    <span className="status-text">Offline</span>
+  </div>
+)}
+</p> */

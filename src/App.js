@@ -1,17 +1,14 @@
 import React from "react";
-//import Contact from "./components/Contact";
-import "./App.css";
+import Contact from "./components/Contact";
 import ContactList from "./components/ContactList";
+import "./App.css";
 import "./components/Contact.css";
 
 const App = () => {
   return (
     <div className="App">
       {ContactList.map(item => (
-        <ul className="contact">
-          <li>{item.name}</li>
-          <img className="avatar" src={item.avatar} alt="toto" />
-        </ul>
+        <Contact name={item.name} avatar={item.avatar} online={item.online} />
       ))}
     </div>
   );
